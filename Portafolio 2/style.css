@@ -212,6 +212,9 @@ header {
 .progress-line .react {
     width: 70%;
 }
+.progress-line .ava {
+    width: 73%;
+}
 .bar .progress-line span::before {
     position: absolute;
     content: "";
@@ -255,6 +258,9 @@ header {
 }
 .progress-line .react::after {
     content: "70%";
+}
+.progress-line .ava::after {
+    content: "73%";
 }
 .navbar.solid {
     background-color: #07374a;

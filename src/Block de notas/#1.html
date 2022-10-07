@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Calculadora</title>
+    <style type="text/css">
+      body{
+        display: grid;
+        height: 100vh;
+        place-items: center;
+        background: rgb(255,226,90);
+        background: -moz-linear-gradient(90deg, rgba(255,226,90,1) 23%, rgba(255,168,82,1) 65%);
+        background: -webkit-linear-gradient(90deg, rgba(255,226,90,1) 23%, rgba(255,168,82,1) 65%);
+        background: linear-gradient(90deg, rgba(255,226,90,1) 23%, rgba(255,168,82,1) 65%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffe25a",endColorstr="#ffa852",GradientType=1);
+      }
+      .contenedor {       
+        border-radius: 9px;
+        background: #ffffff;
+        box-shadow:  7px 7px 42px #d6d6d6,-7px -7px 42px #ffffff;       
+        width: 300px;
+        height: 355px;
+        padding: 10px;
+      }
+       
+       .teclas {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-gap: 10px;  
+          padding: 10px;
+          margin:auto;
+        }
+       
+       .boton {       
+          height: 60px;
+          padding: 5px;
+          background-color: #fff;
+          border-radius: 3px;
+          border: 1px solid #c4c4c4; 
+          background-color: transparent;       
+          font-size: 2rem;
+          color: #333;
+          background-image: linear-gradient(to bottom, transparent, transparent 50%,rgba(0,0,0,.04));       
+          box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), inset 0 1px 0 0 rgba(255,255,255,.45), inset 0 -1px 0 0 rgba(255,255,255,.15), 0 1px 0 0 rgba(255,255,255,.15);       
+          text-shadow: 0 1px rgba(255,255,255,.4);
+
+        }
+      input{
+        outline: none;
+        border: 1px solid transparent;
+      }
+      .boton:hover {
+        background-color: #eaeaea;
+      }
+      .operador {
+        font-size: 1.4rem;
+        background-color: lightgreen;
+      } 
+
+      .operador:hover {
+        background-color:darkolivegreen;
+      }
+      .borrar {
+        background-color: #f0595f;
+        border-color: #b0353a;
+        color: #fff;
+        width: 70px;
+        height: 60px;  
+      }
+
+      .borrar:hover {
+        background-color: #f17377;
+      }
+
+      .igual {
+        background-color: #25a8e0;
+        border-color: #25a8e0;
+        color: #fff;
+      }
+
+      .igual:hover {
+        background-color: #4e9ed4;
+      }
+
+      .pantalla{
+        background-color:rgb(171, 219, 231);
+        justify-content: left;
+        color: black;
+        font-size: medium;
+        width: 49%;
+        height: 30%;
+        cursor: default;
+        padding: 13px; 
+        padding-left: 45%;
+        margin: auto;
+        margin-bottom: 10px;
+        font-size: 25px;
+      }
+      @media (max-width: 500px){
+        .contenedor{
+          border-radius: 9px;
+          background: #ffffff;
+          box-shadow: 7px 7px 42px #d6d6d6, -7px -7px 42px #ffffff;
+          width: calc(100% - 80px);
+          height: calc(100% - 900px);
+          padding: 10px;
+          margin-top: -500px;
+        }
+        .teclas {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-gap: 10px;
+          padding: 10px;
+          margin: auto;
+          margin-top: 50px;
+          height: calc(70% - 10px);
+        }
+        .boton {
+          height: calc(100%);
+          padding: 5px;
+          background-color: #fff;
+          border-radius: 3px;
+          border: 1px solid #c4c4c4;
+          background-color: transparent;
+          font-size: 6rem;
+          color: #333;
+          background-image: linear-gradient(to bottom, transparent, transparent 50%,rgba(0,0,0,.04));
+          box-shadow: inset 0 0 0 1px rgb(255 255 255 / 5%), inset 0 1px 0 0 rgb(255 255 255 / 45%), inset 0 -1px 0 0 rgb(255 255 255 / 15%), 0 1px 0 0 rgb(255 255 255 / 15%);
+          text-shadow: 0 1px rgb(255 255 255 / 40%);
+        }
+        .operador {
+          font-size: 6rem;
+          background-color: lightgreen;
+        }
+        .igual {
+          background-color: #25a8e0;
+          border-color: #25a8e0;
+          color: #fff;
+          font-size: 6rem;
+        }
+        .up{
+          height: calc(15% - 100px);
+          width: calc(100%);
+          margin-top: 90px;
+        }
+        .pantalla {
+          background-color: rgb(171, 219, 231);
+          justify-content: left;
+          color: black;
+          font-size: medium;
+          width: calc(87% - 240px);
+          height: calc(50% + 90px);
+          cursor: default;
+          padding: 13px;
+          padding-left: 45%;
+          margin: auto;
+          margin-bottom: 10px;
+          font-size: 25px;
+          margin-top: 50px;
+        }
+        .td1{
+          width: 240px;
+          background-color: rgb(171, 219, 231);
+          height: 90px;
+        }
+        .td2{
+          width: 200px;
+        }
+        .borrar {
+          background-color: #f0595f;
+          border-color: #b0353a;
+          color: #fff;
+          width: 190px;
+          height: 200px;
+          margin-block-end: -50px;
+          font-size: 6rem;
+        }
+        #resultado {
+          font-size: 6rem;
+        }
+      }
+    </style>
+  </head>  
+  <body>
+    <script type="text/javascript">
+      function pantalla(val){
+        document.getElementById('resultado').value+=val 
+        return val
+      }
+      
+      function resolver(){
+        let x = document.getElementById('resultado').value
+        let y = eval(x);
+        document.getElementById('resultado').value = y
+        return y
+      }
+      function borrartodo(){document.getElementById('resultado').value = ''}
+    </script>
+    <div class="contenedor">
+      <table class="up">
+        <tr>
+          <td colspan="3" class="td1"><input type="text" id="resultado" class="pantalla"/></td>
+          <td class="td2"><input type="button" value="C" onclick="borrartodo()" class="borrar"/></td>
+        </tr>
+      </table>
+      <div class="teclas">
+        <input type="button" value="7" class="boton" onclick="pantalla('7')"/>
+        <input type="button" value="8" class="boton" onclick="pantalla('8')"/>
+        <input type="button" value="9" class="boton" onclick="pantalla('9')"/>
+        <input type="button" value="/" class="operador" onclick="pantalla('/')"/>
+        <input type="button" value="4" class="boton" onclick="pantalla('4')"/>
+        <input type="button" value="5" class="boton" onclick="pantalla('5')"/>
+        <input type="button" value="6" class="boton" onclick="pantalla('6')"/>
+        <input type="button" value="*" class="operador" onclick="pantalla('*')"/>
+        <input type="button" value="1" class="boton" onclick="pantalla('1')"/>
+        <input type="button" value="2" class="boton" onclick="pantalla('2')"/>
+        <input type="button" value="3" class="boton" onclick="pantalla('3')"/>
+        <input type="button" value="-" class="operador" onclick="pantalla('-')"/>
+        <input type="button" value="0" class="boton" onclick="pantalla('0')"/>
+        <input type="button" value="." class="boton" onclick="pantalla('.')"/>
+        <input type="button" value="=" class="igual" onclick="resolver()"/>
+        <input type="button" value="+" class="operador" onclick="pantalla('+')"/>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
